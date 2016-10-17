@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+
+  <div class="header" style="background: url({{site.data.welcome[0].main_image[0].url}}) no-repeat center center; background-size: cover;">
+         <ul class="socialbar">
+           {% if site.data.contact[0].Facebook %}<li><a href="{{site.data.contact[0].Facebook}}" target="blank"><i class="fa fa-facebook"></i></a></li>{% endif %}
+           {% if site.data.contact[0].Twitter %}<li><a href="{{site.data.contact[0].Twitter}}" target="blank"><i class="fa fa-twitter"></i></a></li>{% endif %}
+           {% if site.data.contact[0].Youtube %}<li><a href="{{site.data.contact[0].Youtube}}" target="blank"><i class="fa fa-youtube"></i></a></li>{% endif %}
+           {% if site.data.contact[0].Church_email %}<li><a href="mailto:{{site.data.contact[0].Church_email}}" target="blank"><i class="fa fa-envelope"></i></a></li>{% endif %}
+           {% if site.data.contact[0].Phone_number %}<li><a href="tel:{{site.data.contact[0].Phone_number}}" target="blank"><i class="fa fa-phone"></i></a></li>{% endif %}
+        </ul><!--/socialbar-->
+      <h1>{{site.data.welcome[0].main_heading}}</h1>
+      {{site.data.welcome[0].welcome_message | markdownify}}
+      <a href="#" class="video-button"> <img src="http://sitesforchurch.s3.amazonaws.com/Play.png"/> </a>
+      <a href="{{site.data.welcome[0].paypal_link}}" class="button donate"><i class="fa fa-paypal"></i> Donate Today</a>
+    </div><!--/header-->
+    <div class="main">
+      <div class="content">
+          {{site.data.main[0].Main_message | markdownify }}
+          <a href="{{site.data.welcome[0].paypal_link}}" class="button donate large"><i class="fa fa-paypal"></i> Donate Today</a>
+    </div><!--/main-->
+     <div class="photos">
+      <div class="photos-inner" id="sqr-gallery">
+      {% for img in site.data.images[0].Images  limit: 12 %}
+        <div class="photo"><a href="#" data-featherlight="{{img.url}}"><img src="{{img.thumbnails.large.url }}" alt=""></a></div>
+      {% endfor %}
+      
+      {% comment %}{% for img in site.data.images[0].Images  limit: 4 %}
+      
+      <img data-src="{{img.url}}" data-thumb="{{img.thumbnails.large.url }}" src="{{img.url}}"> 
+      {% endfor %}{% endcomment %}
+      </div><!--/photos-inner-->
+    </div><!--/photos-->
+    <div class="footer-images">
+      {% for item in site.data.footer %}
+      <a href="{{item.URL}}"><img src="{{item.Logo[0].url}}" alt=""></a>
+      {% endfor %}
+    
+    </div><!--/footer-images-->
+   
